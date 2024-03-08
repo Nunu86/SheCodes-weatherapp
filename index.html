@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="source/style.css" />
+    <title>VanillaWeatherApp</title>
+  </head>
+  <body>
+    <div class="border">
+      <header>
+        <div class="title">
+          <span class="material-symbols-outlined"> woman_2</span>
+          <span class="woman icon title">Her Weather App</span>
+        </div>
+        <form>
+          <input
+            class="tile-input"
+            type="search"
+            required
+            placeholder="Enter a city..."
+          />
+          <input type="submit" value="search" class="click-me" />
+        </form>
+      </header>
+      <h1>France</h1>
+
+      <p class="below-france">
+        <br />
+        <span id="dateMap">Tuesday 14:20</span>,
+        <span id="cdescription">scattered clouds</span>
+        <br />
+        <span class="humidity-wind"
+          >Humidity <span id="hum">53</span>%, Wind
+          <span id="wind">2.66</span>km/h</span
+        >
+      </p>
+      <div id="fluffy-clouds">☁️</div>
+      <div class="cloud-icon"><span id="currenttemp">12</span>℃</div>
+      <ul class="days">
+        <li><strong>Mon</strong></li>
+        <li><strong>Tue</strong></li>
+        <li><strong>Weds</strong></li>
+        <li><strong>Thurs</strong></li>
+        <li><strong>Fri</strong></li>
+        <li><strong>Sat</strong></li>
+        <li><strong>Sun</strong></li>
+      </ul>
+
+      <ul>
+        <li>🌞</li>
+        <li>🌞</li>
+        <li>🌞</li>
+        <li class="icon">
+          <span class="material-symbols-outlined"> rainy </span>
+        </li>
+        <li class="icon1">🌞</li>
+        <li class="icon2">🌞</li>
+        <li class="icon3">
+          <span class="material-symbols-outlined"> partly_cloudy_day </span>
+        </li>
+      </ul>
+
+      <ul class="figure">
+        <li><strong>19°</strong>20°</li>
+        <li><strong>19°</strong>20°</li>
+        <li><strong>19°</strong>20°</li>
+        <li class="figure1"><strong>19°</strong>20°</li>
+        <li class="figure2"><strong>19°</strong>20°</li>
+        <li><strong>19°</strong>20°</li>
+        <li class="figure3"><strong>19°</strong>20°</li>
+      </ul>
+
+      <footer>
+        This project was coded by
+        <a href="#">Chinonye Okorie</a> and is open-sourced on
+        <a href="https://github.com/Nunu86/vanilla-weather-app" target="blank"
+          >GITHub</a
+        >
+        and hosted
+        <a href="https://nunus-vanilla-app.netlify.app/" target="blank"
+          >on Netlify</a
+        >
+      </footer>
+    </div>
+    <script src="source/jason.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+body {
+  background-image: url(https://images.pexels.com/photos/258149/pexels-photo-258149.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-position: center;
+}
+
+.border {
+  border: 1px solid #66bfbf;
+  border-radius: 20px;
+  background: #66bfbf;
+  margin: 120px;
+}
+
+.material-symbols-outlined {
+  position: relative;
+  left: 40px;
+  top: 2px;
+}
+.title {
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-bottom: 22px;
+  padding-left: 5px;
+}
+
+form {
+  display: block;
+  text-align: center;
+  padding: 28px;
+  margin-top: 10px;
+  margin-left: 80px;
+  margin-right: 80px;
+  border-bottom: 1px solid #fcfefe;
+  background: #f76b8a;
+  border-radius: 12px;
+}
+
+.tile-input {
+  width: 450px;
+  padding: 12px;
+  background: #eaf6f6;
+}
+input {
+  width: 130px;
+  padding: 12px;
+  background: #eaf6f6;
+  border-radius: 10px;
+}
+.click-me:hover {
+  cursor: pointer;
+  background: #66bfbf;
+  transition: all 1ms ease-in-out;
+}
+
+h1 {
+  margin-left: 90px;
+  margin-top: 30px;
+}
+
+.below-france {
+  margin-left: 180px;
+  font-size: 18px;
+  margin-top: 20px;
+  font-family: "Roboto Slab", serif;
+}
+.humidity-wind {
+  display: block;
+  padding-top: 10px;
+}
+.cloud-icon {
+  display: flex;
+  justify-content: right;
+  position: relative;
+  right: 95px;
+  bottom: 170px;
+  font-size: 45px;
+}
+
+#fluffy-clouds {
+  display: flex;
+  justify-content: right;
+  position: relative;
+  bottom: 100px;
+  right: 180px;
+  font-size: 80px;
+}
+
+ul {
+  display: flex;
+  align-content: center;
+  list-style: none;
+  justify-content: space-evenly;
+  position: relative;
+  top: -70px;
+}
+.icon {
+  position: relative;
+  left: -26px;
+}
+.icon1 {
+  position: relative;
+  left: 18px;
+}
+.icon2 {
+  position: relative;
+  left: 10px;
+}
+.icon3 {
+  position: relative;
+  left: -32px;
+  bottom: 4px;
+}
+.figure {
+  position: relative;
+  left: 10px;
+}
+.figure1 {
+  position: relative;
+  left: 10px;
+}
+.figure2 {
+  position: relative;
+  left: 10px;
+}
+.figure3 {
+  position: relative;
+  right: 8px;
+}
+footer {
+  text-align: center;
+  border-top: 1px solid #f76b8a;
+  margin-left: 220px;
+  margin-right: 200px;
+  margin-bottom: 100px;
+  padding-top: 10px;
+  font-family: "caveat";
+}
