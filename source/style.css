@@ -88,22 +88,27 @@ h1 {
   font-size: 80px;
 }
 
+.group-forcast {
+  display: flex;
+  justify-content: center;
+}
+
 #week-days {
-  text-align: center;
   position: relative;
+  left: 46px;
   bottom: 110px;
 }
 #week-icons {
-  text-align: center;
-  padding: 10px;
+  padding: 26px;
   position: relative;
   bottom: 105px;
 }
 #week-temperatures {
-  text-align: center;
+  display: flex;
   position: relative;
-  bottom: 90px;
-  padding: 10px;
+  top: -25px;
+  left: -60px;
+  bottom: 65px;
 }
 
 footer {

@@ -1,3 +1,23 @@
+function displayForcastTemp(response) {
+  let maxTemp = response.data;
+  console.log(maxTemp);
+}
+
+function displayForcast() {
+  let forcastElements = document.querySelector("#forcastElements");
+  let days = ["Sun", "Mon", "Tue", "Weds", "Thurs", "Fri", "Sat"];
+  let duplicateDays = "";
+  days.forEach(function (Sun) {
+    duplicateDays =
+      duplicateDays +
+      `<div id="week-days">${Sun}</div>
+        <div id="week-icons">🌤️</div>
+        <div id="week-temperatures"><strong>17°</strong> 20°</div>`;
+  });
+  forcastElements.innerHTML = duplicateDays;
+}
+displayForcast();
+
 function displayCurrenttemp(response) {
   let output = Math.round(response.data.temperature.current);
   let output1 = Math.round(response.data.temperature.humidity);
@@ -28,6 +48,10 @@ function changeElements(event) {
   let theLink = `https://api.shecodes.io/weather/v1/current?query=${realCity}&key=${apiKey}`;
 
   axios.get(theLink).then(displayCurrenttemp);
+
+  let forcastapiLink = `https://api.shecodes.io/weather/v1/forecast?query=${realCity}&key=${apiKey}`;
+
+  axios.get(forcastapiLink).then(displayForcastTemp);
 
   let changeFrance = document.querySelector("h1");
   changeFrance.innerHTML = realCity;
