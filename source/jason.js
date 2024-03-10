@@ -1,33 +1,40 @@
-function displayForcastTemp(response) {
-  let maxTemp = response.data;
-  console.log(maxTemp);
-}
-
-function displayForcast() {
-  let forcastElements = document.querySelector("#forcastElements");
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
   let days = ["Sun", "Mon", "Tue", "Weds", "Thurs", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+function displayForcast(response) {
+  console.log(response.data);
+  let forcastElements = document.querySelector("#forcastElements");
+
   let duplicateDays = "";
-  days.forEach(function (Sun) {
-    duplicateDays =
-      duplicateDays +
-      `<div id="week-days">${Sun}</div>
-        <div id="week-icons">🌤️</div>
-        <div id="week-temperatures"><strong>17°</strong> 20°</div>`;
+  response.data.daily.forEach(function (day, index) {
+    if (index < 7) {
+      duplicateDays =
+        duplicateDays +
+        `<div id="week-days">${formatDay(day.time)}</div>
+        <div id="week-icons"><img src=${day.condition.icon_url}></img></div>
+        <div id="week-temperatures"><strong>${Math.round(
+          day.temperature.maximum
+        )}°</strong> ${Math.round(day.temperature.minimum)}°</div>`;
+    }
   });
   forcastElements.innerHTML = duplicateDays;
 }
-displayForcast();
 
 function displayCurrenttemp(response) {
   let output = Math.round(response.data.temperature.current);
   let output1 = Math.round(response.data.temperature.humidity);
   let output2 = Math.round(response.data.wind.speed);
   let output3 = response.data.condition.description;
+  let cityElement = document.querySelector("#city");
 
   let tempValue = document.querySelector("#currenttemp");
   let tempValue1 = document.querySelector("#hum");
   let tempValue2 = document.querySelector("#wind");
   let tempValue3 = document.querySelector("#cdescription");
+  cityElement.innerHTML = response.data.city;
 
   tempValue.innerHTML = output;
   tempValue1.innerHTML = output1;
@@ -37,28 +44,32 @@ function displayCurrenttemp(response) {
   let iconAdd = document.querySelector("#fluffy-clouds");
 
   iconAdd.innerHTML = `<img src="${response.data.condition.icon_url}"></img>`;
+
+  getForcast(response.data.city);
+}
+function getCity(city) {
+  let apiKey = "8ab570aff7t8c4d757b9f03613oab792";
+  let theLink = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(theLink).then(displayCurrenttemp);
 }
 
 function changeElements(event) {
   event.preventDefault();
   let enterCity = document.querySelector("input.tile-input");
-  let realCity = enterCity.value;
-
-  let apiKey = "8ab570aff7t8c4d757b9f03613oab792";
-  let theLink = `https://api.shecodes.io/weather/v1/current?query=${realCity}&key=${apiKey}`;
-
-  axios.get(theLink).then(displayCurrenttemp);
-
-  let forcastapiLink = `https://api.shecodes.io/weather/v1/forecast?query=${realCity}&key=${apiKey}`;
-
-  axios.get(forcastapiLink).then(displayForcastTemp);
-
-  let changeFrance = document.querySelector("h1");
-  changeFrance.innerHTML = realCity;
+  getCity(enterCity.value);
 }
-
 let searchButton = document.querySelector("form");
 searchButton.addEventListener("submit", changeElements);
+
+let changeFrance = document.querySelector("h1");
+changeFrance.innerHTML = `response.data.city`;
+
+function getForcast(city) {
+  let apiKey = "8ab570aff7t8c4d757b9f03613oab792";
+  let forcastapiLink = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(forcastapiLink).then(displayForcast);
+}
+getCity("paris");
 
 function revealDate() {
   let todaysDate = new Date();

@@ -83,54 +83,37 @@ h1 {
   right: 180px;
   font-size: 80px;
 }
-
-ul {
+.group-forcast {
   display: flex;
-  align-content: center;
-  list-style: none;
-  justify-content: space-evenly;
-  position: relative;
-  top: -98px;
+  justify-content: center;
 }
-.icon {
+
+#week-days {
   position: relative;
-  left: -26px;
+  left: 46px;
+  bottom: 110px;
 }
-.icon1 {
+#week-icons {
+  padding: 26px;
   position: relative;
-  left: 18px;
+  bottom: 105px;
 }
-.icon2 {
+#week-temperatures {
+  display: flex;
   position: relative;
-  left: 10px;
+  top: -25px;
+  left: -60px;
+  bottom: 65px;
 }
-.icon3 {
-  position: relative;
-  left: -32px;
-  bottom: 4px;
-}
-.figure {
-  position: relative;
-  left: 10px;
-}
-.figure1 {
-  position: relative;
-  left: 10px;
-}
-.figure2 {
-  position: relative;
-  left: 10px;
-}
-.figure3 {
-  position: relative;
-  right: 8px;
-}
+
 footer {
   text-align: center;
   border-top: 1px solid #f76b8a;
   margin-left: 220px;
   margin-right: 200px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   padding-top: 10px;
   font-family: "caveat";
+  position: relative;
+  bottom: 50px;
 }

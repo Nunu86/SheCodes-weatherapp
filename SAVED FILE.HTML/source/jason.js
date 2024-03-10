@@ -19,22 +19,30 @@ function displayCurrenttemp(response) {
   iconAdd.innerHTML = `<img src="${response.data.condition.icon_url}"></img>`;
 }
 
+function forcastElement(city) {
+  let apiKey = "8ab570aff7t8c4d757b9f03613oab792";
+  let forcastapiLink = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(forcastapiLink).then(groupForcast);
+}
+
 function changeElements(event) {
   event.preventDefault();
-  let enterCity = document.querySelector("input.tile-input");
-  let realCity = enterCity.value;
-
+  let city = "paris";
   let apiKey = "8ab570aff7t8c4d757b9f03613oab792";
-  let theLink = `https://api.shecodes.io/weather/v1/current?query=${realCity}&key=${apiKey}`;
+  let theLink = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
   axios.get(theLink).then(displayCurrenttemp);
+}
+changeElements();
 
+function stopChange() {
+  let enterCity = document.querySelector("input.tile-input");
+  let realCity = enterCity.value;
   let changeFrance = document.querySelector("h1");
   changeFrance.innerHTML = realCity;
 }
-
 let searchButton = document.querySelector("form");
-searchButton.addEventListener("submit", changeElements);
+searchButton.addEventListener("submit", stopChange);
 
 function revealDate() {
   let todaysDate = new Date();
@@ -57,3 +65,21 @@ function revealDate() {
 let realDate = revealDate();
 let insertDate = document.querySelector("#dateMap");
 insertDate.innerHTML = realDate;
+
+function groupForcast(response) {
+  console.log(response.data.daily);
+  let forcastSpace = "";
+
+  response.data.daily.forEach(function (day) {
+    forcastSpace =
+      forcastSpace +
+      `<div id="week-days">${day}</div>
+        <div id="week-icons">🌤️</div>
+        <div id="week-temperatures"><strong>${Math.round(
+          day.temperature.maximum
+        )}°</strong>${Math.round(day.temperature.minimum)}°</div>`;
+  });
+  let replaceElements = document.querySelector("#forcastElements");
+  replaceElements.innerHTML = forcastSpace;
+}
+forcastElement(response.data.city);

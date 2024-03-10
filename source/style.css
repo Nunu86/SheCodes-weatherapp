@@ -99,16 +99,18 @@ h1 {
   bottom: 110px;
 }
 #week-icons {
-  padding: 26px;
+  padding: 20px;
   position: relative;
-  bottom: 105px;
+  left: -28px;
+  bottom: 120px;
+  width: 3px;
 }
 #week-temperatures {
   display: flex;
   position: relative;
-  top: -25px;
-  left: -60px;
-  bottom: 65px;
+  top: -10px;
+  left: -20px;
+  bottom: 10px;
 }
 
 footer {
